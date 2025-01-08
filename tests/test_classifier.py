@@ -5,7 +5,7 @@ import numpy as np
 import cv2
 from unittest.mock import Mock, patch
 import os
-from image_processing.py import ImageProcessor
+from src.utils.image_processing import ImageProcessor
 
 class TestDiplomaClassifier(unittest.TestCase):
 
@@ -113,6 +113,24 @@ def test_visualization(processor, sample_image):
         detections = [{'name': 'test', 'confidence': 0.9}]
         processor.visualize_results(sample_image, detections)
         mock_show.assert_called_once()
+
+def test_with_dummy_images(processor, test_data_dir):
+    # Test with first dummy image
+    image_path = str(test_data_dir / "test1.jpg")
+    image = processor.load_image(image_path)
+    assert image is not None
+    
+    # Process image
+    processed = processor.preprocess_image(image)
+    assert processed.shape == (224, 224, 3)
+    
+    # Test face detection
+    faces = processor.detect_faces(image)
+    assert isinstance(faces, (list, tuple))
+    
+    # Test enhancement
+    enhanced = processor.enhance_image(image)
+    assert enhanced.shape == image.shape
 
 if __name__ == '__main__':
     unittest.main()
