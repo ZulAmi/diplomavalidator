@@ -18,7 +18,7 @@ logger = logging.getLogger(__name__)
 PACKAGE_ROOT = Path(__file__).parent
 
 # Export main components
-from .image_processing import ImageProcessor
+from src.utils.image_processing import ImageProcessor
 
 __all__ = [
     'ImageProcessor',

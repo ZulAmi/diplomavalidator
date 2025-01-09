@@ -1,0 +1,10 @@
+version: '3.8'
+services:
+  test:
+    build: .
+    volumes:
+      - .:/app
+    environment:
+      - PYTHONPATH=/app
+      - GOOGLE_APPLICATION_CREDENTIALS=/app/credentials.json
+    command: pytest tests/ -v --cov=src --cov-report=html
