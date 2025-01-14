@@ -1,4 +1,4 @@
-# Image Processing and Classification System 🖼️
+# Diploma Validation System 🎓
 
 [![Python 3.8+](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/downloads/)
 [![TensorFlow](https://img.shields.io/badge/TensorFlow-2.8.0-orange.svg)](https://tensorflow.org/)
@@ -6,15 +6,17 @@
 
 ## Overview
 
-Advanced image processing system leveraging computer vision and machine learning for object detection, face recognition, and image enhancement.
+Advanced diploma validation system using computer vision and machine learning to detect counterfeit educational certificates. The system analyzes security features, watermarks, and document authenticity through deep learning models.
 
 ## Features
 
-- 🔍 Object detection using Google Cloud Vision API
-- 👤 Face detection with OpenCV
-- 🎨 Image enhancement and preprocessing
-- 📊 Visualization tools
-- ⚡ High-performance image processing pipeline
+- 🔍 Counterfeit detection using deep learning
+- 🏛️ Institution-specific template matching
+- 🔐 Security feature verification
+- 📝 OCR for text validation
+- 🎨 Image preprocessing and enhancement
+- 📊 Confidence scoring system
+- ⚡ Real-time validation pipeline
 
 ## Technologies
 
@@ -59,14 +61,14 @@ cd image-processing-system
 3. Configure your GCP settings in `src/config/settings.py`.
 
 ## Usage
-To train the model, run the following command:
-```
-python src/models/classifier.py
-```
 
-To make predictions on new images, use:
-```
-python src/models/classifier.py predict <image-path>
+```python
+from diploma_validator import DiplomaValidator
+
+validator = DiplomaValidator()
+result = validator.validate("path/to/diploma.jpg")
+print(f"Authenticity Score: {result.score}")
+print(f"Security Features Detected: {result.security_features}")
 ```
 
 ## Testing

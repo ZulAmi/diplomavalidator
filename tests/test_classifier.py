@@ -40,11 +40,6 @@ def sample_image():
     # Create a simple test image
     return np.random.randint(0, 255, (100, 100, 3), dtype=np.uint8)
 
-@pytest.fixture
-def mock_vision_client():
-    with patch('google.cloud.vision.ImageAnnotatorClient') as mock:
-        yield mock
-
 def test_load_image(processor, tmp_path):
     # Create a temporary test image
     test_image_path = tmp_path / "test.jpg"
