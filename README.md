@@ -1,7 +1,7 @@
 # Diploma Validation System 🎓
 
 [![Python 3.8+](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/downloads/)
-[![TensorFlow](https://img.shields.io/badge/TensorFlow-2.8.0-orange.svg)](https://tensorflow.org/)
+[![TensorFlow](https://img.shields.io/badge/TensorFlow-2.13.0-orange.svg)](https://tensorflow.org/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 ## Overview
@@ -47,16 +47,18 @@ ml-diploma-validator
 
 ## Installation
 
-1. Clone the repository:
 ```bash
-git clone https://github.com/yourusername/image-processing-system.git
-cd image-processing-system
-```
+# Clone repository
+git clone https://github.com/yourusername/diploma-validator.git
+cd diploma-validator
 
-2. Install the required dependencies:
-   ```
-   pip install -r requirements.txt
-   ```
+# Create virtual environment
+python3 -m venv venv
+source venv/bin/activate
+
+# Install dependencies
+pip install -r requirements.txt
+```
 
 3. Configure your GCP settings in `src/config/settings.py`.
 

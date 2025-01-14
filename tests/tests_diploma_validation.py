@@ -22,3 +22,17 @@ class TestDiplomaValidation:
         fake_diploma_path = test_data_path / "fake" / "sample_fake.jpg"
         result = processor.validate_diploma(str(fake_diploma_path))
         assert result['authenticity_score'] < 0.5
+
+    def test_batch_real_diplomas(self, processor, test_data_path):
+        real_diploma_dir = test_data_path / "real"
+        for image_path in real_diploma_dir.glob("*.jpg"):
+            result = processor.validate_diploma(str(image_path))
+            print(f"Testing {image_path.name}: Score {result['authenticity_score']}")
+            assert result['authenticity_score'] > 0.8
+
+    def test_batch_fake_diplomas(self, processor, test_data_path):
+        fake_diploma_dir = test_data_path / "fake"
+        for image_path in fake_diploma_dir.glob("*.jpg"):
+            result = processor.validate_diploma(str(image_path))
+            print(f"Testing {image_path.name}: Score {result['authenticity_score']}")
+            assert result['authenticity_score'] < 0.5
