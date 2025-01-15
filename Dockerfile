@@ -5,6 +5,8 @@ RUN apt-get update && apt-get install -y \
     build-essential \
     pkg-config \
     libhdf5-dev \
+    libgl1-mesa-glx \
+    libglib2.0-0 \
     && rm -rf /var/lib/apt/lists/*
 
 WORKDIR /app
