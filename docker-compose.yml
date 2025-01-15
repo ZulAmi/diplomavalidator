@@ -8,3 +8,11 @@ services:
       - PYTHONPATH=/app
       - GOOGLE_APPLICATION_CREDENTIALS=/app/credentials.json
     command: pytest tests/ -v --cov=src --cov-report=html
+
+  api:
+    build: .
+    volumes:
+      - .:/app
+    ports:
+      - "8000:8000"
+    command: uvicorn src.api.main:app --host 0.0.0.0 --port 8000
