@@ -7,6 +7,11 @@ RUN apt-get update && apt-get install -y \
     libhdf5-dev \
     libgl1-mesa-glx \
     libglib2.0-0 \
+    libpango1.0-0 \
+    libpangocairo-1.0-0 \
+    libcairo2 \
+    libffi-dev \
+    shared-mime-info \
     && rm -rf /var/lib/apt/lists/*
 
 WORKDIR /app
